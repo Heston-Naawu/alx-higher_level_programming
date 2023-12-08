@@ -1,30 +1,8 @@
-/*
- * File: 100-print_python_list_info.c
- 
- */
+#!/usr/bin/python3
+# 11-delete_at.py
 
-#include <Python.h>
-
-/**
- * print_python_list_info - Prints basic info about Python lists.
- * @p: A PyObject list.
- */
-void print_python_list_info(PyObject *p)
-{
-	int size, alloc, i;
-	PyObject *obj;
-
-	size = Py_SIZE(p);
-	alloc = ((PyListObject *)p)->allocated;
-
-	printf("[*] Size of the Python List = %d\n", size);
-	printf("[*] Allocated = %d\n", alloc);
-
-	for (i = 0; i < size; i++)
-	{
-		printf("Element %d: ", i);
-
-		obj = PyList_GetItem(p, i);
-		printf("%s\n", Py_TYPE(obj)->tp_name);
-	}
-}
+def delete_at(my_list=[], idx=0):
+    """Delete an item at a specific position in a list."""
+    if idx >= 0 and idx < len(my_list):
+        del my_list[idx]
+    return (my_list)
